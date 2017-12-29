@@ -1,12 +1,12 @@
+install:
+	npm install
+
 test:
 	npm test
 
 publish:
 	git push -u --tags origin master
 	npm publish
-
-update:
-	npm update
 
 npm-patch:
 	npm version patch
@@ -21,4 +21,4 @@ patch: test npm-patch publish
 minor: test npm-minor publish
 major: test npm-major publish
 
-.PHONY: test publish update npm-patch npm-minor npm-major patch minor major
+.PHONY: test publish install npm-patch npm-minor npm-major patch minor major
