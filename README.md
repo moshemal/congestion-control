@@ -8,7 +8,7 @@ const {addTask} = require('congestion-control');
 const aTask = () => {
     return Promise.resolve('aTask is finished');
 }
-addTask(task).then( result => {
+addTask(aTask).then( result => {
     console.log(result);  //aTask is finished
 });
 ```
