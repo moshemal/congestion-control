@@ -4,7 +4,7 @@
   "description": "Control the number of concurrent running tasks",
   "author": "Moshe Malka",
   "license": "MIT",
-  "repository": "/moshemal/congestion-control",
+  "repository": "https://github.com/moshemal/congestion-control.git",
   "scripts": {
     "test": "mocha *.spec.js"
   },
