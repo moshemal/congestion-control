@@ -4,7 +4,8 @@ control the number of concurrent running tasks
 
 ## usage
 ```js
-const {addTask} = require('congestion-control');
+const {Congestion} = require('congestion-control');
+const addTask = Congestion();
 const aTask = () => {
     return Promise.resolve('aTask is finished');
 }
