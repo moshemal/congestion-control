@@ -1,12 +1,13 @@
 {
   "name": "congestion-control",
   "version": "1.0.0",
-  "description": "",
+  "description": "Control the number of concurrent running tasks",
   "main": "congestion-control.js",
+  "repository": "/moshemal/congestion-control",
   "scripts": {
     "test": "mocha *.spec.js"
   },
-  "keywords": [],
+  "keywords": ["congestion control", "concurrent", "promise"],
   "author": "Moshe Malka",
   "license": "Mit",
   "devDependencies": {
