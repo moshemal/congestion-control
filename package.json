@@ -1,6 +1,6 @@
 {
   "name": "congestion-control",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Control the number of concurrent running tasks",
   "author": "Moshe Malka",
   "license": "MIT",
@@ -9,7 +9,9 @@
     "test": "mocha *.spec.js"
   },
   "main": "index.js",
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "congestion control",
     "concurrent",
