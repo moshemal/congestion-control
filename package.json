@@ -7,11 +7,15 @@
   "scripts": {
     "test": "mocha *.spec.js"
   },
-  "keywords": ["congestion control", "concurrent", "promise"],
+  "keywords": [
+    "congestion control",
+    "concurrent",
+    "promise"
+  ],
   "author": "Moshe Malka",
-  "license": "Mit",
+  "license": "MIT",
   "devDependencies": {
-    "mocha": "^4.0.1",
+    "mocha": "^4.1.0",
     "nyc": "^11.4.1",
     "rewire": "^3.0.2"
   }
