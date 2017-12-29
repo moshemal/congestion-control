@@ -1,14 +1,14 @@
 {
   "name": "congestion-control",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "congestion-control.js",
   "scripts": {
     "test": "mocha *.spec.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Moshe Malka",
+  "license": "Mit",
   "devDependencies": {
     "mocha": "^4.0.1",
     "nyc": "^11.4.1",
