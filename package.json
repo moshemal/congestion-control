@@ -1,0 +1,17 @@
+{
+  "name": "congestion-control",
+  "version": "1.0.0",
+  "description": "",
+  "main": "congestion-control.js",
+  "scripts": {
+    "test": "mocha *.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "nyc": "^11.4.1",
+    "rewire": "^3.0.2"
+  }
+}
