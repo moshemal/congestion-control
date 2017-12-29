@@ -2,11 +2,11 @@
 control the number of concurrent running tasks
 
 
-##usage
-'''js
+## usage
+```js
 const {addTask} = require('congestion-control');
 function task(){
     return Promise.resolve();
 }
 addTask(task);
-'''
+```
