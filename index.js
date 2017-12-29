@@ -1,13 +1,17 @@
 'use strict';
-
+const defaultOps = {
+    initialWindowSize: 5,
+    retries: 3
+}
 class CongestionControl {
-    constructor(initialWindowSize = 5, retries = 3){
+    constructor(options){
+        const ops = Object.assign({}, defaultOps, options);
         this._currentPending    = 0;
-        this._windowSize        = initialWindowSize;
+        this._windowSize        = ops.initialWindowSize;
         this._nSuccess          = 0;
         this._errorMap          = new Map();
         this._q                 = [];
-        this.retries            = retries;
+        this.retries            = ops.retries;
     }
     addTask(func){
         const promise = new Promise((resolve, reject)=>{
@@ -56,8 +60,8 @@ class CongestionControl {
     }
 }
 
-function Congestion(initialWindowSize, retries){
-    const cc = new CongestionControl(initialWindowSize, retries);
+function Congestion(ops = {}){
+    const cc = new CongestionControl(ops);
     return function addTask(func){
         return cc.addTask(func);
     }

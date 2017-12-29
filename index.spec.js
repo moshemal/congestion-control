@@ -15,7 +15,10 @@ describe('CongestionControl class', function(){
     });
     it('should initiate default props', function(){
         const instance = new CongestionControl();
-        const instance2 = new CongestionControl(7, 2);
+        const instance2 = new CongestionControl({
+            initialWindowSize: 7,
+            retries: 2
+        });
         assert.equal(instance._windowSize, 5);
         assert.equal(instance.retries, 3);
         assert.equal(instance2._windowSize, 7);
@@ -26,7 +29,9 @@ describe('CongestionControl class', function(){
 
 describe('Congestion with window size 1', function() {
     beforeEach(function(){
-       this.addTask = Congestion(1);
+       this.addTask = Congestion({
+           initialWindowSize: 1
+       });
     });
 
     it('should return true', function() {
