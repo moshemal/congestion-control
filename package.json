@@ -1,6 +1,6 @@
 {
   "name": "congestion-control",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Control the number of concurrent running tasks",
   "main": "congestion-control.js",
   "repository": "/moshemal/congestion-control",
