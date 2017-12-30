@@ -13,9 +13,11 @@
     "index.js"
   ],
   "keywords": [
+    "congestion-control",
     "congestion control",
     "concurrent",
-    "promise"
+    "promise",
+    "saturate"
   ],
   "devDependencies": {
     "mocha": "^4.1.0",
