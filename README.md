@@ -11,7 +11,8 @@ const {Congestion} = require('congestion-control');
 const addTask = Congestion();
 const aTask = () => {
     return Promise.resolve('aTask is finished');
-}
+};
+
 addTask(aTask).then( result => {
     console.log(result);  //aTask is finished
 });
@@ -28,7 +29,8 @@ const addTask = Congestion({
 ```
 
 ### initialWindowSize (default 1)
-The number of tasks the module will run concurrently. All the rest of the tasks will wait on a queue till one of the running tasks finishes
+The initial number of tasks the module will run concurrently. All the rest of the tasks will wait on a queue till one of the running tasks finishes.
+The window size will adjust itself automatically to the optimal size. 
 ```js
 const {Congestion} = require('congestion-control');
 const addTask = Congestion({
