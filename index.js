@@ -2,7 +2,8 @@
 const defaultOps = {
     initialWindowSize: 5,
     retries: 3
-}
+};
+
 class CongestionControl {
     constructor(options){
         const ops = Object.assign({}, defaultOps, options);
@@ -66,7 +67,5 @@ function Congestion(ops = {}){
         return cc.addTask(func);
     }
 }
-
-
 
 module.exports.Congestion = Congestion;
