@@ -17,12 +17,15 @@ describe('CongestionControl class', function(){
         const instance = new CongestionControl();
         const instance2 = new CongestionControl({
             initialWindowSize: 7,
-            retries: 2
+            retries: 2,
+            maximumWindowSize: 20,
         });
         assert.equal(instance._windowSize, 5);
         assert.equal(instance.retries, 3);
+        assert.equal(instance.maximumWindowSize, Number.POSITIVE_INFINITY);
         assert.equal(instance2._windowSize, 7);
         assert.equal(instance2.retries, 2);
+        assert.equal(instance2.maximumWindowSize, 20);
     });
     //TODO: window size is adjusting, no starving,
 });
@@ -88,4 +91,5 @@ describe('Congestion with window size 1', function() {
             assert.fail(e);
         })
     });
+
 });

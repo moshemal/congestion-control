@@ -1,18 +1,20 @@
 'use strict';
 const defaultOps = {
     initialWindowSize: 5,
-    retries: 3
+    retries: 3,
+    maximumWindowSize: Infinity,
 };
 
 class CongestionControl {
     constructor(options){
         const ops = Object.assign({}, defaultOps, options);
         this._currentPending    = 0;
-        this._windowSize        = ops.initialWindowSize;
+        this._windowSize        = ops.initialWindowSize > ops.maximumWindowSize ? ops.maximumWindowSize : ops.initialWindowSize;
         this._nSuccess          = 0;
         this._errorMap          = new Map();
         this._q                 = [];
         this.retries            = ops.retries;
+        this.maximumWindowSize  = ops.maximumWindowSize;
     }
     addTask(func){
         const promise = new Promise((resolve, reject)=>{
@@ -52,7 +54,7 @@ class CongestionControl {
     }
     increase(){
         this._nSuccess = 0;
-        this._windowSize++;
+        this._windowSize < this.maximumWindowSize && this._windowSize++;
     }
 
     decrease(){
