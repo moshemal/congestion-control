@@ -37,3 +37,13 @@ const addTask = Congestion({
     initialWindowSize: 10
 });
 ```
+
+### maximumWindowSize (default Infinity)
+Maximum number of tasks the module will run concurrently.
+Note that if initialWindowSize is bigger than maximumWindowSize then initialWindowSize will be equal to maximumWindowSize
+```js
+const {Congestion} = require('congestion-control');
+const addTask = Congestion({
+    maximumWindowSize: 9
+});
+```
