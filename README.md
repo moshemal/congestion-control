@@ -1,4 +1,4 @@
-# congestion-control
+# congestion-control ![Node.js CI](https://github.com/moshemal/congestion-control/workflows/Node.js%20CI/badge.svg)
 Control the number of concurrent running tasks. When a task fails (return a rejected promise) the module retry to run it a configured number of times.
 
 
