@@ -1,11 +1,9 @@
 const assert = require('assert');
-const rewire = require('rewire');
-const congestionModule = rewire('./index');
-const {Congestion} = require('./index');
-const CongestionControl = congestionModule.__get__('CongestionControl');
+const CongestionControl = require('./CongestionControl');
 
 
 describe('CongestionControl class', function(){
+
     it('should create an instance', function(){
         const instance = new CongestionControl();
         assert.ok(instance);
@@ -13,6 +11,7 @@ describe('CongestionControl class', function(){
             assert.equal(typeof instance[fName], 'function');
         });
     });
+    
     it('should initiate default props', function(){
         const instance = new CongestionControl();
         const instance2 = new CongestionControl({
@@ -30,21 +29,22 @@ describe('CongestionControl class', function(){
     //TODO: window size is adjusting, no starving,
 });
 
-describe('Congestion with window size 1', function() {
-    beforeEach(function(){
-       this.addTask = Congestion({
+describe('CongestionControl with window size 1', function() {
+    beforeEach(function() {
+       this.cc = new CongestionControl({
            initialWindowSize: 1
        });
     });
 
     it('should return true', function() {
-        return this.addTask(()=>{return Promise.resolve(true)}).then( result => {
+        return this.cc.addTask(()=>{return Promise.resolve(true)}).then( result => {
             assert.equal(result, true);
         })
     });
+
     it('should throw an error after 3 retries', function() {
         let count = 0;
-        return this.addTask(()=>{
+        return this.cc.addTask(()=>{
             count++;
             return Promise.reject('rejected')
         }).then( () => {
@@ -56,7 +56,7 @@ describe('Congestion with window size 1', function() {
     });
     it('should success after 2 retries', function() {
         let count = 0;
-        return this.addTask(()=>{
+        return this.cc.addTask(()=>{
             count++;
             if (count < 3) return Promise.reject('rejected');
             return Promise.resolve('success');
@@ -69,7 +69,7 @@ describe('Congestion with window size 1', function() {
     });
     it('should run the second task only after the first is finished', function(){
         let first = 0, second = 0;
-        this.addTask(()=>{
+        this.cc.addTask(()=>{
             return new Promise((resolve, reject)=>{
                 setTimeout(()=>{
                     first++;
@@ -81,7 +81,7 @@ describe('Congestion with window size 1', function() {
             assert.equal(first, 4);
             assert.equal(second, 0);
         });
-        return this.addTask(()=>{
+        return this.cc.addTask(()=>{
             return Promise.resolve('success');
         }).then(r=>{
             second++;

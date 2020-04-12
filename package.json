@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "https://github.com/moshemal/congestion-control.git",
   "scripts": {
-    "test": "mocha *.spec.js"
+    "test": "mocha \"src/**/*.spec.js\""
   },
   "main": "index.js",
   "files": [
